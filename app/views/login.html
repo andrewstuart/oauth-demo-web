@@ -1,0 +1,16 @@
+<ul style="color: red;" ng-if="error">
+  <li ng-repeat="err in error">{{err}}</li>
+</ul>
+
+<div ng-if="token">
+  {{token}}
+</div>
+
+<div>
+  <h1>Data</h1>
+  {{data.foo}}
+</div>
+
+<a href="https://oauth.astuart.co/authorize?client_id=1&redirect_uri=http://localhost:9000/login&response_type=code&scope=/thing/*">
+  Login with oauth
+</a>
