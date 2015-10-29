@@ -11,6 +11,14 @@
   {{data.foo}}
 </div>
 
-<a href="https://oauth.astuart.co/authorize?client_id=1&redirect_uri=http://localhost:9000/login&response_type=code&scope=/thing/*">
-  Login with oauth
-</a>
+<div>
+  <a href="https://oauth.astuart.co/authorize?client_id=1&redirect_uri=http://localhost:9000/login&response_type=code&scope=/thing/*">
+    Login with oauth
+  </a>
+</div>
+
+<div>
+  <a href="https://idp.astuart.co/idp/profile/SAML2/Unsolicited/SSO?providerId=oauth.astuart.co&target=oauth.astuart.co/saml?grant_type=saml2-bearer&client_id=1&response_type=code&redirect_uri=http://localhost:9000/login">
+    Login with SAML
+  </a>
+</div>

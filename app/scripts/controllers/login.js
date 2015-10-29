@@ -31,6 +31,6 @@ angular.module('oauthApp')
     });
 
     if ( $routeParams.error ) {
-      $scope.error = $routeParams.error;
+      $scope.error.push($routeParams.error);
     }
   });
