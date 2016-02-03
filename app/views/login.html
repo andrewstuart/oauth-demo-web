@@ -1,14 +1,23 @@
-<ul style="color: red;" ng-if="error">
-  <li ng-repeat="err in error">{{err}}</li>
-</ul>
+<div ng-if="error.length">
+  <h1>Errors</h1>
+  <ul>
+    <li style="color: red;"  ng-repeat="err in error">{{err}}</li>
+  </ul>
+</div>
 
 <div ng-if="token">
+  <h1>Token</h1>
   {{token}}
 </div>
 
+<div ng-if="tokenInfo">
+  <h1>Token Info</h1>
+  {{tokenInfo}}
+</div>
+
 <div>
-  <h1>Data</h1>
-  {{data.foo}}
+  <h1>Protected Data</h1>
+  {{data ? data : 'No data'}}
 </div>
 
 <div>

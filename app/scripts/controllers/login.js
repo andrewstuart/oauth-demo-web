@@ -22,12 +22,19 @@ angular.module('oauthApp')
     }).catch(function(err) {
       $scope.error.push(err);
     }).finally(function() {
-      return $http.get('https://oauth-service.astuart.co/stuff').then(function(res) {
-        $scope.data = res.data;
-      });
-    }).catch(function(err) {
-      console.log(err);
-      $scope.error.push(err);
+      return $q.all([
+        $http.get('https://oauth-service.astuart.co/stuff').then(function(res) {
+          $scope.data = res.data;
+        }).catch(function(err) {
+          $scope.error.push(err);
+        }),
+        $http.get('https://oauth.astuart.co/token_info', {params: { token: $scope.token.access_token }})
+        .then(function(res) {
+          $scope.tokenInfo = res.data;
+        }).catch(function(err) {
+          $scope.error.push(err);
+        })
+      ]);
     });
 
     if ( $routeParams.error ) {
